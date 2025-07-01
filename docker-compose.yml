@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  rag-pdf-app:
+    build: .
+    ports:
+      - "8501:8501"  # Streamlit
+      - "8000:8000"  # FastAPI
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - HUGGINGFACE_API_TOKEN=${HUGGINGFACE_API_TOKEN}
+    volumes:
+      - ./data:/app/data
+      - ./.env:/app/.env
+    command: streamlit run app.py --server.port=8501 --server.address=0.0.0.0
+    restart: unless-stopped
+    networks:
+      - rag-network
+
+  rag-pdf-api:
+    build: .
+    ports:
+      - "8001:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - HUGGINGFACE_API_TOKEN=${HUGGINGFACE_API_TOKEN}
+    volumes:
+      - ./data:/app/data
+      - ./.env:/app/.env
+    command: python api.py
+    restart: unless-stopped
+    networks:
+      - rag-network
+    depends_on:
+      - rag-pdf-app
+
+networks:
+  rag-network:
+    driver: bridge
+
+volumes:
+  rag_data:
+    driver: local
