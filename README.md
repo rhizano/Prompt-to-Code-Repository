@@ -1,9 +1,14 @@
-# RAG PDF AI Agent
+# Prompt-to-Code-Repository
 
-## Deskripsi
+Collection of AI-powered coding projects and experiments.
+
+## Projects
+
+### RAG PDF AI Agent
+
 AI Agent untuk melakukan Retrieval Augmented Generation (RAG) pada file PDF menggunakan LangChain dan Python. Project ini memungkinkan users untuk mengupload file PDF dan mengajukan pertanyaan tentang konten dalam file tersebut.
 
-## Fitur
+#### Fitur
 - Upload dan parsing file PDF
 - Text chunking dan embedding
 - Vector database untuk pencarian semantik
@@ -11,7 +16,7 @@ AI Agent untuk melakukan Retrieval Augmented Generation (RAG) pada file PDF meng
 - Interface web dengan Streamlit
 - Support untuk multiple PDF files
 
-## Teknologi yang Digunakan
+#### Teknologi yang Digunakan
 - **Python 3.8+**
 - **LangChain** - Framework untuk LLM applications
 - **OpenAI GPT** - Large Language Model
@@ -20,20 +25,20 @@ AI Agent untuk melakukan Retrieval Augmented Generation (RAG) pada file PDF meng
 - **PyPDF2** - PDF processing
 - **Sentence Transformers** - Text embeddings
 
-## Setup dan Instalasi
+#### Setup dan Instalasi
 
-### 1. Clone Repository
+##### 1. Clone Repository
 ```bash
 git clone https://github.com/rhizano/Prompt-to-Code-Repository.git
 cd Prompt-to-Code-Repository/rag-pdf
 ```
 
-### 2. Install Dependencies
+##### 2. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Setup Environment Variables
+##### 3. Setup Environment Variables
 ```bash
 cp .env.example .env
 ```
@@ -43,12 +48,12 @@ OPENAI_API_KEY=your_openai_api_key_here
 HUGGINGFACE_API_TOKEN=your_huggingface_token_here
 ```
 
-### 4. Jalankan Aplikasi
+##### 4. Jalankan Aplikasi
 ```bash
 streamlit run app.py
 ```
 
-## Struktur Project
+#### Struktur Project
 ```
 rag-pdf/
 ├── app.py                 # Main Streamlit application
@@ -67,14 +72,14 @@ rag-pdf/
 └── README.md             # Project documentation
 ```
 
-## Cara Penggunaan
+#### Cara Penggunaan
 
 1. **Upload PDF**: Upload file PDF melalui interface web
 2. **Processing**: Sistem akan memproses dan membuat embeddings
 3. **Query**: Ajukan pertanyaan tentang konten PDF
 4. **Response**: Dapatkan jawaban berdasarkan konten PDF
 
-## API Endpoints
+#### API Endpoints
 
 Jika ingin menggunakan sebagai API:
 - `POST /upload` - Upload PDF file
